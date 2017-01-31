@@ -78,13 +78,15 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1"
+            android:text="+"
+            android:onClick="addButtonClicked"
             android:layout_weight="1"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1"
+            android:text="="
+            android:onClick="equalButtonClicked"
             android:layout_weight="1"/>
 
         <Button
