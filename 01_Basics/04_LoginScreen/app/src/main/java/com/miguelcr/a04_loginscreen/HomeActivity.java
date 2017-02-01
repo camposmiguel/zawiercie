@@ -17,7 +17,7 @@ public class HomeActivity extends AppCompatActivity {
         // get the extra value for "user"
         Bundle data = getIntent().getExtras();
         String userEmail = data.getString("user");
-        
+
         // Set the email value into the textViewWelocome
         welcome.setText("Welcome "+userEmail);
     }
