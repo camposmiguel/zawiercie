@@ -31,6 +31,7 @@
         android:layout_alignTop="@+id/cell5"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:onClick="cellClicked"
         android:id="@+id/cell6" />
 
     <ImageView
@@ -41,6 +42,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="32dp"
+        android:onClick="cellClicked"
         android:id="@+id/cell7" />
 
     <ImageView
@@ -49,6 +51,7 @@
         app:srcCompat="@drawable/ic_box_empty"
         android:layout_alignTop="@+id/cell7"
         android:layout_centerHorizontal="true"
+        android:onClick="cellClicked"
         android:id="@+id/cell8" />
 
     <ImageView
@@ -58,6 +61,7 @@
         android:layout_marginTop="41dp"
         android:id="@+id/cell1"
         android:layout_below="@+id/textViewWelcome"
+        android:onClick="cellClicked"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -78,6 +82,7 @@
         android:id="@+id/cell3"
         android:layout_alignTop="@+id/cell2"
         android:layout_alignParentRight="true"
+        android:onClick="cellClicked"
         android:layout_alignParentEnd="true" />
 
     <ImageView
@@ -87,6 +92,7 @@
         android:id="@+id/cell5"
         android:layout_alignTop="@+id/cell4"
         android:layout_alignLeft="@+id/cell8"
+        android:onClick="cellClicked"
         android:layout_alignStart="@+id/cell8" />
 
     <ImageView
@@ -105,6 +111,7 @@
         android:id="@+id/cell2"
         android:layout_alignTop="@+id/cell1"
         android:layout_alignLeft="@+id/cell5"
+        android:onClick="cellClicked"
         android:layout_alignStart="@+id/cell5" />
 
     <TextView
