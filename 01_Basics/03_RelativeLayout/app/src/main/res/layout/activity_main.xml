@@ -9,34 +9,52 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.miguelcr.a03_relativelayout.MainActivity">
+    tools:context="com.miguelcr.a03_relativelayout.MainActivity"
+    android:background="@android:color/black">
 
 
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/ic_avatar"
+        android:id="@+id/imageViewAvatar"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/imageViewAvatar" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp" />
 
     <TextView
-        android:text="Michael"
+        android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textViewName"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/imageViewAvatar"
-        android:layout_toEndOf="@+id/imageViewAvatar" />
+        android:layout_below="@+id/imageViewAvatar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:id="@+id/textView"
+        android:textSize="40sp"
+        android:textColor="@android:color/white"
+        tools:text="Paul Octavius"
+        android:textStyle="normal|bold" />
 
     <TextView
-        android:text="18 years old"
+        android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewName"
-        android:layout_toRightOf="@+id/imageViewAvatar"
-        android:layout_toEndOf="@+id/imageViewAvatar"
-        android:layout_marginTop="14dp"
-        android:id="@+id/textViewAge" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView2"
+        android:textColor="#BBBBBB"
+        android:textSize="30sp"
+        android:gravity="center"
+        tools:text="Photographer + Blogger + freelance" />
+
+    <Button
+        android:text="Follow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:drawableLeft="@drawable/ic_add"
+        android:id="@+id/button" />
+
 </RelativeLayout>
