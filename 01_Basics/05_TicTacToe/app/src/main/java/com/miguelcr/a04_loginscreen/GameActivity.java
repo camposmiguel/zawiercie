@@ -93,18 +93,55 @@ public class GameActivity extends AppCompatActivity {
             case R.id.cell9: cellsClicked[8] = currentPlayer; break;
         }
 
-
-
-
     }
 
     public void changeTurn() {
-        if(currentPlayer==1) {
-            currentPlayer = 2;
-            playerTurn.setText("Now is playing "+p2Name);
-        } else {
-            currentPlayer = 1;
-            playerTurn.setText("Now is playing "+p1Name);
+        if(existSolution()) {
+            if(currentPlayer==1) {
+                playerTurn.setText("The winner is " + p1Name);
+            } else {
+                playerTurn.setText("The winner is " + p2Name);
+            }
+        } else { // if not exist solution
+
+            if(currentPlayer==1) {
+                currentPlayer = 2;
+                playerTurn.setText("Now is playing "+p2Name);
+            } else {
+                currentPlayer = 1;
+                playerTurn.setText("Now is playing "+p1Name);
+            }
         }
+
+    }
+
+    private boolean existSolution() {
+        /*
+        cell1 |  cell2  |  cell3
+       --------------------------
+        cell4 |  cell5  |  cell6
+       --------------------------
+        cell7 |  cell8  |  cell9
+         */
+
+        // cell1 > 0, cella4 > 3, cell7 > 6
+        if(cellsClicked[0]!=0
+                && cellsClicked[0]==cellsClicked[3]
+                && cellsClicked[0]==cellsClicked[6]) {
+            return true;
+        } else if(...) { //cell2, cell5, cell8
+
+            return true;
+        } else if(...) {
+
+        } else if() {
+
+        } else if() {
+
+        } ...
+
+        return false;
+
+
     }
 }
