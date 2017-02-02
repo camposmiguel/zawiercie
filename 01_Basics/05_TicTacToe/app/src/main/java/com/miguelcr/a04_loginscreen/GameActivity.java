@@ -95,6 +95,9 @@ public class GameActivity extends AppCompatActivity {
                 // Game over restart
                 gameOver = false;
 
+                // Restart player turn
+                currentPlayer = 1;
+                playerTurn.setText("Now is playing "+p1Name);
 
                 return true;
             case R.id.action_exit:
@@ -127,33 +130,116 @@ public class GameActivity extends AppCompatActivity {
                     }
                     break;
                 case R.id.cell2:
-                    cellsClicked[1] = currentPlayer;
-                    if (currentPlayer == 1) {
-                        c2.setImageResource(R.drawable.ic_player1);
+                    if (cellsClicked[1] == 0) {
+                        cellsClicked[1] = currentPlayer;
+                        if (currentPlayer == 1) {
+                            c2.setImageResource(R.drawable.ic_player1);
+                        } else {
+                            c2.setImageResource(R.drawable.ic_player2);
+                        }
+
+                        changeTurn();
                     } else {
-                        c2.setImageResource(R.drawable.ic_player2);
+                        Toast.makeText(this, "Cell is not empty", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case R.id.cell3:
-                    cellsClicked[2] = currentPlayer;
+                    if (cellsClicked[2] == 0) {
+                        cellsClicked[2] = currentPlayer;
+                        if (currentPlayer == 1) {
+                            c3.setImageResource(R.drawable.ic_player1);
+                        } else {
+                            c3.setImageResource(R.drawable.ic_player2);
+                        }
+
+                        changeTurn();
+                    } else {
+                        Toast.makeText(this, "Cell is not empty", Toast.LENGTH_SHORT).show();
+                    }
                     break;
                 case R.id.cell4:
-                    cellsClicked[3] = currentPlayer;
+                    if (cellsClicked[3] == 0) {
+                        cellsClicked[3] = currentPlayer;
+                        if (currentPlayer == 1) {
+                            c4.setImageResource(R.drawable.ic_player1);
+                        } else {
+                            c4.setImageResource(R.drawable.ic_player2);
+                        }
+
+                        changeTurn();
+                    } else {
+                        Toast.makeText(this, "Cell is not empty", Toast.LENGTH_SHORT).show();
+                    }
                     break;
                 case R.id.cell5:
-                    cellsClicked[4] = currentPlayer;
+                    if (cellsClicked[4] == 0) {
+                        cellsClicked[4] = currentPlayer;
+                        if (currentPlayer == 1) {
+                            c5.setImageResource(R.drawable.ic_player1);
+                        } else {
+                            c5.setImageResource(R.drawable.ic_player2);
+                        }
+
+                        changeTurn();
+                    } else {
+                        Toast.makeText(this, "Cell is not empty", Toast.LENGTH_SHORT).show();
+                    }
                     break;
                 case R.id.cell6:
-                    cellsClicked[5] = currentPlayer;
+                    if (cellsClicked[5] == 0) {
+                        cellsClicked[5] = currentPlayer;
+                        if (currentPlayer == 1) {
+                            c6.setImageResource(R.drawable.ic_player1);
+                        } else {
+                            c6.setImageResource(R.drawable.ic_player2);
+                        }
+
+                        changeTurn();
+                    } else {
+                        Toast.makeText(this, "Cell is not empty", Toast.LENGTH_SHORT).show();
+                    }
                     break;
                 case R.id.cell7:
-                    cellsClicked[6] = currentPlayer;
+                    if (cellsClicked[6] == 0) {
+                        cellsClicked[6] = currentPlayer;
+                        if (currentPlayer == 1) {
+                            c7.setImageResource(R.drawable.ic_player1);
+                        } else {
+                            c7.setImageResource(R.drawable.ic_player2);
+                        }
+
+                        changeTurn();
+                    } else {
+                        Toast.makeText(this, "Cell is not empty", Toast.LENGTH_SHORT).show();
+                    }
                     break;
                 case R.id.cell8:
-                    cellsClicked[7] = currentPlayer;
+                    if (cellsClicked[7] == 0) {
+                        cellsClicked[7] = currentPlayer;
+                        if (currentPlayer == 1) {
+                            c8.setImageResource(R.drawable.ic_player1);
+                        } else {
+                            c8.setImageResource(R.drawable.ic_player2);
+                        }
+
+                        changeTurn();
+                    } else {
+                        Toast.makeText(this, "Cell is not empty", Toast.LENGTH_SHORT).show();
+                    }
                     break;
                 case R.id.cell9:
-                    cellsClicked[8] = currentPlayer;
+                    if (cellsClicked[8] == 0) {
+                        cellsClicked[8] = currentPlayer;
+                        if (currentPlayer == 1) {
+                            c9.setImageResource(R.drawable.ic_player1);
+                        } else {
+                            c9.setImageResource(R.drawable.ic_player2);
+                        }
+
+                        changeTurn();
+                    } else {
+                        Toast.makeText(this, "Cell is not empty", Toast.LENGTH_SHORT).show();
+                    }
                     break;
             }
         }
@@ -182,17 +268,52 @@ public class GameActivity extends AppCompatActivity {
 
     private boolean existSolution() {
         /*
-        cell1 |  cell2  |  cell3
-       --------------------------
-        cell4 |  cell5  |  cell6
-       --------------------------
-        cell7 |  cell8  |  cell9
+        cell1 / 0 |  cell2 / 1  |  cell3 / 2
+       -------------------------------------
+        cell4 / 3 |  cell5 / 4  |  cell6 / 5
+       -------------------------------------
+        cell7 / 6 |  cell8 / 7  |  cell9 / 8
          */
 
         // cell1 > 0, cella4 > 3, cell7 > 6
         if(cellsClicked[0]!=0
                 && cellsClicked[0]==cellsClicked[3]
                 && cellsClicked[0]==cellsClicked[6]) {
+            gameOver = true;
+            return true;
+        } else if(cellsClicked[1]!=0
+                && cellsClicked[1]==cellsClicked[4]
+                && cellsClicked[1]==cellsClicked[7]) { // 1,4,7
+            gameOver = true;
+            return true;
+        } else if(cellsClicked[2]!=0
+                && cellsClicked[2]==cellsClicked[5]
+                && cellsClicked[2]==cellsClicked[8]) { // 2,5,8
+            gameOver = true;
+            return true;
+        } else if(cellsClicked[0]!=0
+                && cellsClicked[0]==cellsClicked[1]
+                && cellsClicked[0]==cellsClicked[2]) { // 0,1,2
+            gameOver = true;
+            return true;
+        } else if(cellsClicked[3]!=0
+                && cellsClicked[3]==cellsClicked[4]
+                && cellsClicked[3]==cellsClicked[5]) { // 3,4,5
+            gameOver = true;
+            return true;
+        } else if(cellsClicked[6]!=0
+                && cellsClicked[6]==cellsClicked[7]
+                && cellsClicked[6]==cellsClicked[8]) { // 6,7,8
+            gameOver = true;
+            return true;
+        } else if(cellsClicked[0]!=0
+                && cellsClicked[0]==cellsClicked[4]
+                && cellsClicked[0]==cellsClicked[8]) { // 0,4,8
+            gameOver = true;
+            return true;
+        } else if(cellsClicked[2]!=0
+                && cellsClicked[2]==cellsClicked[4]
+                && cellsClicked[2]==cellsClicked[6]) { // 2,4,6
             gameOver = true;
             return true;
         }

@@ -71,6 +71,7 @@
         app:srcCompat="@drawable/ic_box_empty"
         android:layout_marginTop="29dp"
         android:id="@+id/cell4"
+        android:onClick="cellClicked"
         android:layout_below="@+id/cell1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -98,21 +99,12 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:onClick="cellClicked"
         app:srcCompat="@drawable/ic_box_empty"
         android:id="@+id/cell9"
         android:layout_alignTop="@+id/cell8"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
-
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/ic_box_empty"
-        android:id="@+id/cell2"
-        android:layout_alignTop="@+id/cell1"
-        android:layout_alignLeft="@+id/cell5"
-        android:onClick="cellClicked"
-        android:layout_alignStart="@+id/cell5" />
 
     <TextView
         android:text="TextView"
@@ -121,5 +113,15 @@
         android:id="@+id/textViewPlayer"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/ic_box_empty"
+        android:id="@+id/cell2"
+        android:onClick="cellClicked"
+        android:layout_alignTop="@+id/cell1"
+        android:layout_alignLeft="@+id/cell5"
+        android:layout_alignStart="@+id/cell5" />
 
 </RelativeLayout>
