@@ -4,9 +4,8 @@
 
     <item android:title="Take photo"
         android:id="@+id/action_take_photo"
-        android:showAsAction="ifRoom"
-        android:icon="@android:drawable/ic_menu_camera"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom"
+        android:icon="@android:drawable/ic_menu_camera" />
     <item android:title="Reload"
         android:id="@+id/action_reload" />
 </menu>

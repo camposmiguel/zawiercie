@@ -2,6 +2,9 @@ package com.miguelcr.a04_loginscreen;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,6 +16,7 @@ public class GameActivity extends AppCompatActivity {
     int[] cellsClicked = {0,0,0,0,0,0,0,0,0};
     int currentPlayer = 1;
     ImageView c1, c2, c3, c4, c5, c6, c7, c8, c9;
+    boolean gameOver = false;
 
     // cellsClicked[0], cellsClicked[1], cellsClicked[2],..
     // cellsClicked[0] = 1; > cell1
@@ -59,38 +63,99 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.game_options_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_restart:
+
+                // Restart the array cellsClicked:
+                for(int i=0; i<cellsClicked.length; i++) {
+                    cellsClicked[i] = 0;
+                }
+
+                // Restart the images
+                c1.setImageResource(R.drawable.ic_box_empty);
+                c2.setImageResource(R.drawable.ic_box_empty);
+                c3.setImageResource(R.drawable.ic_box_empty);
+                c4.setImageResource(R.drawable.ic_box_empty);
+                c5.setImageResource(R.drawable.ic_box_empty);
+                c6.setImageResource(R.drawable.ic_box_empty);
+                c7.setImageResource(R.drawable.ic_box_empty);
+                c8.setImageResource(R.drawable.ic_box_empty);
+                c9.setImageResource(R.drawable.ic_box_empty);
+
+                // Game over restart
+                gameOver = false;
+
+
+                return true;
+            case R.id.action_exit:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     public void cellClicked(View view) {
         int id = view.getId();
 
-        switch (id) {
-            case R.id.cell1:
-                if(cellsClicked[0]==0) {
-                    cellsClicked[0] = currentPlayer;
-                    if (currentPlayer == 1) {
-                        c1.setImageResource(R.drawable.ic_player1);
-                    } else {
-                        c1.setImageResource(R.drawable.ic_player2);
-                    }
+        if(gameOver) {
+            Toast.makeText(this, "Game over! Restart to continue", Toast.LENGTH_SHORT).show();
+        } else {
+            switch (id) {
+                case R.id.cell1:
+                    if (cellsClicked[0] == 0) {
+                        cellsClicked[0] = currentPlayer;
+                        if (currentPlayer == 1) {
+                            c1.setImageResource(R.drawable.ic_player1);
+                        } else {
+                            c1.setImageResource(R.drawable.ic_player2);
+                        }
 
-                    changeTurn();
-                } else {
-                    Toast.makeText(this, "Cell is not empty", Toast.LENGTH_SHORT).show();
-                }
-                break;
-            case R.id.cell2: cellsClicked[1] = currentPlayer;
-                if(currentPlayer==1) {
-                    c2.setImageResource(R.drawable.ic_player1);
-                } else {
-                    c2.setImageResource(R.drawable.ic_player2);
-                }
-                break;
-            case R.id.cell3: cellsClicked[2] = currentPlayer; break;
-            case R.id.cell4: cellsClicked[3] = currentPlayer; break;
-            case R.id.cell5: cellsClicked[4] = currentPlayer; break;
-            case R.id.cell6: cellsClicked[5] = currentPlayer; break;
-            case R.id.cell7: cellsClicked[6] = currentPlayer; break;
-            case R.id.cell8: cellsClicked[7] = currentPlayer; break;
-            case R.id.cell9: cellsClicked[8] = currentPlayer; break;
+                        changeTurn();
+                    } else {
+                        Toast.makeText(this, "Cell is not empty", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                case R.id.cell2:
+                    cellsClicked[1] = currentPlayer;
+                    if (currentPlayer == 1) {
+                        c2.setImageResource(R.drawable.ic_player1);
+                    } else {
+                        c2.setImageResource(R.drawable.ic_player2);
+                    }
+                    break;
+                case R.id.cell3:
+                    cellsClicked[2] = currentPlayer;
+                    break;
+                case R.id.cell4:
+                    cellsClicked[3] = currentPlayer;
+                    break;
+                case R.id.cell5:
+                    cellsClicked[4] = currentPlayer;
+                    break;
+                case R.id.cell6:
+                    cellsClicked[5] = currentPlayer;
+                    break;
+                case R.id.cell7:
+                    cellsClicked[6] = currentPlayer;
+                    break;
+                case R.id.cell8:
+                    cellsClicked[7] = currentPlayer;
+                    break;
+                case R.id.cell9:
+                    cellsClicked[8] = currentPlayer;
+                    break;
+            }
         }
 
     }
@@ -128,17 +193,9 @@ public class GameActivity extends AppCompatActivity {
         if(cellsClicked[0]!=0
                 && cellsClicked[0]==cellsClicked[3]
                 && cellsClicked[0]==cellsClicked[6]) {
+            gameOver = true;
             return true;
-        } else if(...) { //cell2, cell5, cell8
-
-            return true;
-        } else if(...) {
-
-        } else if() {
-
-        } else if() {
-
-        } ...
+        }
 
         return false;
 
