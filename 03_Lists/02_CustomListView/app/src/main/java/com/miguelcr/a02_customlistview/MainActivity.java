@@ -28,5 +28,15 @@ public class MainActivity extends AppCompatActivity {
         androidVersionList.add(new AndroidVersion("Gingerbread",R.drawable.ic_gingerbread));
 
 
+        // Adapter
+        MyAndroidVersionAdapter adapter = new MyAndroidVersionAdapter(
+                this,
+                R.layout.android_version_item,
+                androidVersionList
+        );
+
+        lista.setAdapter(adapter);
+
+
     }
 }
