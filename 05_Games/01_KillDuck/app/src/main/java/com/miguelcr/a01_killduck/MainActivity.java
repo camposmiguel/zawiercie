@@ -1,5 +1,6 @@
 package com.miguelcr.a01_killduck;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -47,7 +48,13 @@ public class MainActivity extends AppCompatActivity {
         if(nickName.trim().equals("")) {
             nick.setError(getString(R.string.error_nickname));
         } else {
+            // 1st param: context
+            // 2nd param: the name of Activity with .class extension >> GameActivity.class
+            Intent i = new Intent(this, GameActivity.class);
 
+            // pass the nick value to the GameActivity
+            i.putExtra("nick",nickName);
+            startActivity(i);
         }
     }
 }
