@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_user"
+        android:id="@+id/imageViewPhoto"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#BE894A"/>
+
+    <TextView
+        android:text="Cristiano Ronaldo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imageViewPhoto"
+        android:layout_toEndOf="@+id/imageViewPhoto"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:id="@+id/textViewName"
+        android:textSize="25sp"
+        android:textColor="#BE894A" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_star_off"
+        android:layout_alignBottom="@+id/imageViewStar1"
+        android:layout_toRightOf="@+id/imageViewStar1"
+        android:layout_toEndOf="@+id/imageViewStar1"
+        android:id="@+id/imageViewStar2" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_star_off"
+        android:layout_below="@+id/textViewName"
+        android:layout_toRightOf="@+id/imageViewStar2"
+        android:layout_toEndOf="@+id/imageViewStar2"
+        android:id="@+id/imageViewStar3" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_star_off"
+        android:layout_below="@+id/textViewName"
+        android:layout_toRightOf="@+id/imageViewStar3"
+        android:layout_toEndOf="@+id/imageViewStar3"
+        android:id="@+id/imageViewStar4" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_star_off"
+        android:layout_below="@+id/textViewName"
+        android:layout_toRightOf="@+id/imageViewStar4"
+        android:layout_toEndOf="@+id/imageViewStar4"
+        android:id="@+id/imageViewStar5" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_star_off"
+        android:id="@+id/imageViewStar1"
+        android:layout_below="@+id/textViewName"
+        android:layout_alignLeft="@+id/textViewName"
+        android:layout_alignStart="@+id/textViewName" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_arrow"
+        android:layout_alignBottom="@+id/imageViewStar5"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/imageView7" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_goals"
+        android:id="@+id/imageViewBall"
+        android:layout_below="@+id/imageViewStar1"
+        android:layout_alignLeft="@+id/imageViewStar1"
+        android:layout_alignStart="@+id/imageViewStar1"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:text="25 goals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewGoals"
+        android:textSize="20sp"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_alignTop="@+id/imageViewBall"
+        android:layout_toRightOf="@+id/imageViewBall"
+        android:layout_toEndOf="@+id/imageViewBall" />
+
+</RelativeLayout>
