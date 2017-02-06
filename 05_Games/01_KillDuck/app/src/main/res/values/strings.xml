@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">01_KillDuck</string>
+    <string name="error_nickname">Write a nickname please</string>
 </resources>

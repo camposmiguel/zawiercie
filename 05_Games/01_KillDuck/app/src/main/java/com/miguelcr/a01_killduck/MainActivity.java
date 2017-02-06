@@ -3,9 +3,11 @@ package com.miguelcr.a01_killduck;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -37,5 +39,15 @@ public class MainActivity extends AppCompatActivity {
         Typeface type = Typeface.createFromAsset(getAssets(),"pixel.otf");
         btnStartGame.setTypeface(type);
         nick.setTypeface(type);
+    }
+
+    public void startGame(View view) {
+        String nickName = nick.getText().toString();
+
+        if(nickName.trim().equals("")) {
+            nick.setError(getString(R.string.error_nickname));
+        } else {
+
+        }
     }
 }
