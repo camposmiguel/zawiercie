@@ -22,5 +22,7 @@ public class GameActivity extends AppCompatActivity {
         Typeface type = Typeface.createFromAsset(getAssets(),"pixel.otf");
         textViewPlayer.setTypeface(type);
 
+        getSupportActionBar().hide();
+
     }
 }
