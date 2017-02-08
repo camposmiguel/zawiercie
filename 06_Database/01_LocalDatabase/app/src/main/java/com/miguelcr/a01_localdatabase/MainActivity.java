@@ -11,7 +11,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.GridView;
 
+import com.miguelcr.a01_localdatabase.database.DaoSession;
 import com.miguelcr.a01_localdatabase.database.Student;
+import com.miguelcr.a01_localdatabase.database.StudentDao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +41,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
         studentList = new ArrayList<>();
+
+        // Get a local database connection object
+        DaoSession connection = DatabaseConnection.getConnection(this);
+
+        // Get an object to manage the 'Student' entity
+        StudentDao studentDao = connection.getStudentDao();
+
+        // SELECT * FROM Student
+        studentList = studentDao.loadAll();
+
+
 
         // Adapter
         MyStudentAdapter adapter = new MyStudentAdapter(

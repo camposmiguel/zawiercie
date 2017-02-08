@@ -7,7 +7,6 @@ import com.miguelcr.a01_localdatabase.database.DaoMaster;
 import com.miguelcr.a01_localdatabase.database.DaoSession;
 import com.miguelcr.a01_localdatabase.database.StudentDao;
 
-
 public class DatabaseConnection {
     private static SQLiteDatabase db;
     private static DaoMaster daoMaster;
