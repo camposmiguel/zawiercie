@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_game"
     android:layout_width="match_parent"
@@ -8,13 +9,73 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/bg"
     tools:context="com.miguelcr.a01_killduck.GameActivity">
 
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:srcCompat="@drawable/duck_hunt_logo"
+        android:id="@+id/imageViewDuckKilled"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <TextView
-        android:text="TextView"
+        android:text="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:id="@+id/textViewDuckCount"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:layout_alignTop="@+id/imageViewDuckKilled"
+        android:layout_alignBottom="@+id/imageViewDuckKilled"
+        android:layout_toRightOf="@+id/imageViewDuckKilled"
+        android:layout_toEndOf="@+id/imageViewDuckKilled"
+        android:textSize="24sp" />
+
+    <TextView
+        android:text="Nick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewPlayer"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/textViewPlayer" />
+        android:gravity="center"
+        android:layout_alignTop="@+id/imageViewDuckKilled"
+        android:layout_alignBottom="@+id/imageViewDuckKilled"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:srcCompat="@drawable/timer"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/textViewTimer"
+        android:layout_toStartOf="@+id/textViewTimer"
+        android:id="@+id/imageViewTimer" />
+
+    <TextView
+        android:text="60s"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewTimer"
+        android:gravity="center"
+        android:layout_alignTop="@+id/imageViewTimer"
+        android:layout_alignBottom="@+id/imageViewTimer"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:srcCompat="@drawable/duck"
+        android:onClick="duckClicked"
+        android:id="@+id/imageViewDuck"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/textViewTimer"
+        android:layout_toStartOf="@+id/textViewTimer" />
 </RelativeLayout>
