@@ -21,6 +21,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     GridView lista;
     List<Student> studentList;
+    MyStudentAdapter adapter;
+    StudentDao studentDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         DaoSession connection = DatabaseConnection.getConnection(this);
 
         // Get an object to manage the 'Student' entity
-        StudentDao studentDao = connection.getStudentDao();
+        studentDao = connection.getStudentDao();
 
         // SELECT * FROM Student
         studentList = studentDao.loadAll();
@@ -54,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Adapter
-        MyStudentAdapter adapter = new MyStudentAdapter(
+        adapter = new MyStudentAdapter(
                 this,
                 R.layout.student_item,
                 studentList
@@ -85,5 +87,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        studentList.clear();
+        // studentList > SELECT * FROM Student
+        studentList.addAll(studentDao.loadAll());
+        adapter.notifyDataSetChanged();
     }
 }
